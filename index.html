@@ -95,9 +95,11 @@
   .cards{display:grid;gap:18px;margin-top:20px;}
   .card{background:var(--paper);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);
     border:1px solid #fce7db;}
-  .photo{height:150px;display:grid;place-items:center;font-size:4.4rem;position:relative;}
-  .photo .tag{position:absolute;left:14px;bottom:10px;background:rgba(255,255,255,.85);
-    padding:3px 12px;border-radius:999px;font-size:.78rem;font-weight:700;color:var(--ink);}
+  .photo{height:190px;display:grid;place-items:center;font-size:4.4rem;position:relative;overflow:hidden;}
+  .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+  .photo .tag{position:absolute;left:14px;bottom:10px;z-index:2;background:rgba(255,255,255,.9);
+    padding:4px 13px;border-radius:999px;font-size:.8rem;font-weight:700;color:var(--ink);
+    box-shadow:0 2px 8px rgba(0,0,0,.12);}
   .p-bread{background:linear-gradient(135deg,#ffe0b3,#ffb877);}
   .p-doraemon{background:linear-gradient(135deg,#bfe3ff,#7cc0ff);}
   .p-ame{background:linear-gradient(135deg,#ffd3c1,#ff9f85);}
@@ -122,6 +124,15 @@
     font-family:"Zen Maru Gothic",sans-serif;font-size:1.35rem;color:var(--ink);}
   .label .line{flex:1;height:3px;border-radius:3px;
     background:repeating-linear-gradient(90deg,#ffcdb2 0 10px,transparent 10px 18px);}
+
+  /* ---------- SHOP LIST ---------- */
+  .shoplist{margin-top:12px;background:#fff6f2;border-radius:16px;padding:12px 16px;
+    border:1px dashed #ffcdb2;}
+  .shoptitle{font-weight:700;color:var(--rose);font-size:.9rem;margin-bottom:6px;}
+  .shoplist ul{list-style:none;}
+  .shoplist li{font-size:.9rem;color:#6b574e;padding:4px 0 4px 20px;position:relative;}
+  .shoplist li::before{content:"🛍️";position:absolute;left:0;top:3px;font-size:.85rem;}
+  .shoplist li b{color:var(--ink);}
 
   /* ---------- FAMILY ---------- */
   .family{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;justify-content:center;}
@@ -172,11 +183,11 @@
   <!-- FAMILY -->
   <div class="label">👨‍👩‍👧‍👦 同行的家人 <span class="line"></span></div>
   <div class="family">
-    <div class="member"><span class="ava">🙋</span><b>我</b><small>領隊兼小幫手</small></div>
-    <div class="member"><span class="ava">👩</span><b>大妹</b><small>30–40 歲</small></div>
-    <div class="member"><span class="ava">👶</span><b>寶寶（姪子）</b><small>2 歲 · 大妹的寶貝</small></div>
-    <div class="member"><span class="ava">👩</span><b>小妹</b><small>30–40 歲</small></div>
-    <div class="member"><span class="ava">👵</span><b>媽媽</b><small>60 多歲 · 最重要的主角</small></div>
+    <div class="member"><span class="ava">👵</span><b>慧容</b></div>
+    <div class="member"><span class="ava">🙋</span><b>瑋紘</b></div>
+    <div class="member"><span class="ava">👩</span><b>瑋珊</b></div>
+    <div class="member"><span class="ava">👩</span><b>瑋庭</b></div>
+    <div class="member"><span class="ava">👶</span><b>晨皓</b></div>
   </div>
 
   <!-- DAY 1 -->
@@ -193,6 +204,22 @@
       <div class="item"><div class="time">19:30</div><div class="what"><span class="emoji">🚐</span>搭機場接送</div></div>
       <div class="item"><div class="time">20:00</div><div class="what"><span class="emoji">🏨</span>抵達 <b>& Here Tokyo Ueno</b>，吃晚餐</div></div>
       <div class="item"><div class="time">22:30</div><div class="what"><span class="emoji">😴</span>晚安～好好休息</div></div>
+    </div>
+
+    <!-- HOTEL -->
+    <div class="label">🏨 我們的家 <span class="line"></span></div>
+    <div class="hotel">
+      <h3>& Here Tokyo Ueno</h3>
+      <div class="jp">アンドヒア東京上野 · 上野站徒步可達</div>
+      <p>位在上野的溫馨飯店，走幾步就到阿美橫町、Donki 和車站，帶著媽媽和寶寶進出超方便。房間舒適整潔，回飯店讓寶寶睡午覺、大人稍作休息都很剛好。</p>
+      <div class="onsen">
+        <div class="big">♨️</div>
+        <div>
+          <b>最療癒的亮點：大浴場</b><br>
+          飯店設有寬敞的<b>大浴場</b>，玩了一整天回來，泡進暖暖的熱水裡，肩頸和雙腳的疲勞都融化了～特別適合帶媽媽一起去好好放鬆，是每天晚上最幸福的儀式感 💗
+        </div>
+      </div>
+      <div class="stay-note">🗓️ 入住 4 晚 · 7/27 – 7/31</div>
     </div>
   </section>
 
@@ -215,7 +242,7 @@
 
     <div class="cards">
       <div class="card">
-        <div class="photo p-bread">🍞<span class="tag">麵包超人博物館</span></div>
+        <div class="photo p-bread"><img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Yokohama_Anpanman_Children%27s_Museum_2019_-_03.jpg" alt="麵包超人博物館" loading="lazy" onerror="this.remove()">🍞<span class="tag">麵包超人博物館</span></div>
         <div class="card-body">
           <h3>橫濱麵包超人博物館</h3>
           <div class="jp">横浜アンパンマンこどもミュージアム</div>
@@ -224,7 +251,7 @@
         </div>
       </div>
       <div class="card">
-        <div class="photo p-doraemon">🔔<span class="tag">哆啦A夢博物館</span></div>
+        <div class="photo p-doraemon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Fujiko%EF%BD%A5F%EF%BD%A5Fujio_Museum_-01.jpg" alt="哆啦A夢博物館" loading="lazy" onerror="this.remove()">🔔<span class="tag">哆啦A夢博物館</span></div>
         <div class="card-body">
           <h3>藤子・F・不二雄博物館</h3>
           <div class="jp">藤子・F・不二雄ミュージアム（川崎）</div>
@@ -233,16 +260,26 @@
         </div>
       </div>
       <div class="card">
-        <div class="photo p-ame">🏮<span class="tag">阿美橫町</span></div>
+        <div class="photo p-ame"><img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Ameya-yokocho01s5s3200.jpg" alt="阿美橫町" loading="lazy" onerror="this.remove()">🏮<span class="tag">阿美橫町</span></div>
         <div class="card-body">
           <h3>阿美橫町</h3>
           <div class="jp">アメ横 · 上野</div>
           <p>上野最熱鬧的市場老街，海鮮、水果、零食、藥妝、雜貨通通有，邊走邊吃邊逛超有活力。就在飯店附近，這趟會來好幾次的口袋名單～</p>
-          <div class="chips"><span class="chip">🦐 現吃海鮮</span><span class="chip">💊 藥妝</span><span class="chip">🍓 水果攤</span></div>
+          <div class="shoplist">
+            <div class="shoptitle">💗 媽媽會愛的逛街店點</div>
+            <ul>
+              <li><b>二木の菓子</b>：超大零食伴手禮店，餅乾糖果應有盡有，買回台灣送人剛好。</li>
+              <li><b>多慶屋（TAKEYA）</b>：紫色大樓的免稅百貨，藥妝、雜貨、化妝品便宜好逛。</li>
+              <li><b>OS Drug／各大藥妝店</b>：媽媽的保養品、藥品、保健食品掃貨天堂。</li>
+              <li><b>志村商店</b>：有名的「巧克力叫賣」，老闆邊喊邊塞，超好玩又划算。</li>
+              <li><b>松坂屋 上野店</b>：走累了就進百貨吹冷氣、上乾淨廁所、喝下午茶休息。</li>
+            </ul>
+          </div>
+          <div class="chips"><span class="chip">🍪 零食伴手禮</span><span class="chip">💊 藥妝掃貨</span><span class="chip">🍫 巧克力叫賣</span></div>
         </div>
       </div>
       <div class="card">
-        <div class="photo p-donki">🐧<span class="tag">Donki</span></div>
+        <div class="photo p-donki"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Don_Quijote_Akiba_at_Night_-_2019.11.27.jpg/1280px-Don_Quijote_Akiba_at_Night_-_2019.11.27.jpg" alt="唐吉訶德 Donki" loading="lazy" onerror="this.remove()">🐧<span class="tag">Donki</span></div>
         <div class="card-body">
           <h3>唐吉訶德</h3>
           <div class="jp">驚安の殿堂 ドン・キホーテ</div>
@@ -262,7 +299,7 @@
     <div class="timeline">
       <div class="item"><div class="time">09:00</div><div class="what"><span class="emoji">🥐</span>起床吃早餐</div></div>
       <div class="item"><div class="time">10:00</div><div class="what"><span class="emoji">🚗</span>Uber 前往 <b>台場 DiverCity</b></div></div>
-      <div class="item"><div class="time">10:30</div><div class="what"><span class="emoji">🧱</span><b>樂高探索樂園</b>（姪子最期待！）</div></div>
+      <div class="item"><div class="time">10:30</div><div class="what"><span class="emoji">🧱</span><b>樂高探索樂園</b>（晨皓最期待！）</div></div>
       <div class="item"><div class="time">12:00</div><div class="what"><span class="emoji">🍣</span>午餐：<b>江戸湾直送 迴轉壽司</b></div></div>
       <div class="item"><div class="time">14:00</div><div class="what"><span class="emoji">🛌</span>寶寶回飯店睡午覺</div></div>
       <div class="item"><div class="time">15:30</div><div class="what"><span class="emoji">🏮</span>逛阿美橫町</div></div>
@@ -273,7 +310,7 @@
 
     <div class="cards">
       <div class="card">
-        <div class="photo p-gundam">🤖<span class="tag">台場 DiverCity</span></div>
+        <div class="photo p-gundam"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Life-Sized_Unicorn_Gundam_Statue.jpg/1280px-Life-Sized_Unicorn_Gundam_Statue.jpg" alt="台場獨角獸鋼彈" loading="lazy" onerror="this.remove()">🤖<span class="tag">台場 DiverCity</span></div>
         <div class="card-body">
           <h3>DiverCity Tokyo Plaza</h3>
           <div class="jp">台場 · お台場</div>
@@ -282,16 +319,16 @@
         </div>
       </div>
       <div class="card">
-        <div class="photo p-lego">🧱<span class="tag">樂高探索樂園</span></div>
+        <div class="photo p-lego"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/14-05-28-LEGO-by-RalfR-053.jpg/1280px-14-05-28-LEGO-by-RalfR-053.jpg" alt="樂高探索樂園" loading="lazy" onerror="this.remove()">🧱<span class="tag">樂高探索樂園</span></div>
         <div class="card-body">
           <h3>樂高探索樂園</h3>
           <div class="jp">LEGOLAND Discovery Center Tokyo · 台場</div>
-          <p>就在台場的室內樂高樂園，<b>特別為小小孩設計</b>！有溜滑梯、賽車軌道、4D 電影和用幾百萬顆樂高蓋出的迷你東京。冷氣涼涼、不怕日曬雨淋，2 歲的姪子可以玩得超盡興～</p>
+          <p>就在台場的室內樂高樂園，<b>特別為小小孩設計</b>！有溜滑梯、賽車軌道、4D 電影和用幾百萬顆樂高蓋出的迷你東京。冷氣涼涼、不怕日曬雨淋，晨皓可以玩得超盡興～</p>
           <div class="chips"><span class="chip">🧱 室內樂園</span><span class="chip">👶 適合幼兒</span><span class="chip">🎬 4D 電影</span></div>
         </div>
       </div>
       <div class="card">
-        <div class="photo p-sushi">🍣<span class="tag">午餐 · 迴轉壽司</span></div>
+        <div class="photo p-sushi"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Various_sushi%2C_beautiful_October_night_at_midnight.jpg" alt="迴轉壽司" loading="lazy" onerror="this.remove()">🍣<span class="tag">午餐 · 迴轉壽司</span></div>
         <div class="card-body">
           <h3>江戸湾直送 迴轉壽司</h3>
           <div class="jp">江戸湾直送 回転寿司</div>
@@ -300,7 +337,7 @@
         </div>
       </div>
       <div class="card">
-        <div class="photo p-kaiseki">🍱<span class="tag">晚餐 · 懷石料理</span></div>
+        <div class="photo p-kaiseki"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Jisaku_Kaiseki_Ryori_01.jpg/1280px-Jisaku_Kaiseki_Ryori_01.jpg" alt="懷石料理" loading="lazy" onerror="this.remove()">🍱<span class="tag">晚餐 · 懷石料理</span></div>
         <div class="card-body">
           <h3>梅の花 上野広小路店</h3>
           <div class="jp">梅の花 · 湯葉と豆腐の懐石</div>
@@ -330,7 +367,7 @@
 
     <div class="cards">
       <div class="card">
-        <div class="photo p-sky">🗼<span class="tag">晴空塔 &amp; 水族館</span></div>
+        <div class="photo p-sky"><img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg" alt="東京晴空塔" loading="lazy" onerror="this.remove()">🗼<span class="tag">晴空塔 &amp; 水族館</span></div>
         <div class="card-body">
           <h3>東京晴空塔 &amp; 墨田水族館</h3>
           <div class="jp">東京スカイツリー &amp; すみだ水族館</div>
@@ -339,7 +376,7 @@
         </div>
       </div>
       <div class="card">
-        <div class="photo p-gyutan">🐮<span class="tag">午餐 · 牛舌</span></div>
+        <div class="photo p-gyutan"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Grilled_beef_tongue_%2828240627827%29.jpg/1280px-Grilled_beef_tongue_%2828240627827%29.jpg" alt="炭烤牛舌" loading="lazy" onerror="this.remove()">🐮<span class="tag">午餐 · 牛舌</span></div>
         <div class="card-body">
           <h3>利久牛舌</h3>
           <div class="jp">牛たん炭焼 利久</div>
@@ -348,7 +385,7 @@
         </div>
       </div>
       <div class="card">
-        <div class="photo p-yakiniku">🥩<span class="tag">晚餐 · 和牛燒肉</span></div>
+        <div class="photo p-yakiniku"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Yakiniku_002.jpg" alt="和牛燒肉" loading="lazy" onerror="this.remove()">🥩<span class="tag">晚餐 · 和牛燒肉</span></div>
         <div class="card-body">
           <h3>USHIHACHI 極</h3>
           <div class="jp">和牛焼肉 うしはち 極 · 上野</div>
@@ -375,22 +412,6 @@
       <div class="item"><div class="time">18:00</div><div class="what"><span class="emoji">🏝️</span>平安回到澎湖，回家囉！</div></div>
     </div>
   </section>
-
-  <!-- HOTEL -->
-  <div class="label">🏨 我們的家 <span class="line"></span></div>
-  <div class="hotel">
-    <h3>& Here Tokyo Ueno</h3>
-    <div class="jp">アンドヒア東京上野 · 上野站徒步可達</div>
-    <p>位在上野的溫馨飯店，走幾步就到阿美橫町、Donki 和車站，帶著媽媽和寶寶進出超方便。房間舒適整潔，回飯店讓寶寶睡午覺、大人稍作休息都很剛好。</p>
-    <div class="onsen">
-      <div class="big">♨️</div>
-      <div>
-        <b>最療癒的亮點：大浴場</b><br>
-        飯店設有寬敞的<b>大浴場</b>，玩了一整天回來，泡進暖暖的熱水裡，肩頸和雙腳的疲勞都融化了～特別適合帶媽媽一起去好好放鬆，是每天晚上最幸福的儀式感 💗
-      </div>
-    </div>
-    <div class="stay-note">🗓️ 入住 4 晚 · 7/27 – 7/31</div>
-  </div>
 
   <!-- FOOTER -->
   <footer>
