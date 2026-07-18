@@ -133,6 +133,23 @@
   .shoplist li{font-size:.9rem;color:#6b574e;padding:4px 0 4px 20px;position:relative;}
   .shoplist li::before{content:"🛍️";position:absolute;left:0;top:3px;font-size:.85rem;}
   .shoplist li b{color:var(--ink);}
+  /* accordion */
+  .acc{margin-top:8px;}
+  .shop{background:#fff;border:1px dashed #ffcdb2;border-radius:14px;margin-bottom:8px;
+    overflow:hidden;}
+  .shop summary{cursor:pointer;list-style:none;padding:11px 14px;font-weight:700;
+    color:var(--ink);font-size:.92rem;display:flex;justify-content:space-between;
+    align-items:center;gap:8px;user-select:none;}
+  .shop summary::-webkit-details-marker{display:none;}
+  .shop summary .desc{font-weight:500;color:var(--ink-soft);font-size:.78rem;}
+  .shop summary::after{content:"展開 ▾";flex:none;color:var(--rose);font-size:.76rem;
+    font-weight:700;transition:transform .2s;}
+  .shop[open] summary::after{content:"收合 ▴";}
+  .shop[open] summary{border-bottom:1px dashed #ffe0d4;}
+  .shopgoods{padding:11px 14px 13px;display:flex;flex-wrap:wrap;gap:7px;}
+  .goods{background:#fff6f2;border:1px solid #ffd9cc;border-radius:999px;
+    padding:5px 12px;font-size:.83rem;color:#6b574e;}
+  .goods b{color:var(--rose);}
 
   /* ---------- FAMILY ---------- */
   .family{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;justify-content:center;}
@@ -266,14 +283,44 @@
           <div class="jp">アメ横 · 上野</div>
           <p>上野最熱鬧的市場老街，海鮮、水果、零食、藥妝、雜貨通通有，邊走邊吃邊逛超有活力。就在飯店附近，這趟會來好幾次的口袋名單～</p>
           <div class="shoplist">
-            <div class="shoptitle">💗 媽媽會愛的逛街店點</div>
-            <ul>
-              <li><b>二木の菓子</b>：超大零食伴手禮店，餅乾糖果應有盡有，買回台灣送人剛好。</li>
-              <li><b>多慶屋（TAKEYA）</b>：紫色大樓的免稅百貨，藥妝、雜貨、化妝品便宜好逛。</li>
-              <li><b>OS Drug／各大藥妝店</b>：媽媽的保養品、藥品、保健食品掃貨天堂。</li>
-              <li><b>志村商店</b>：有名的「巧克力叫賣」，老闆邊喊邊塞，超好玩又划算。</li>
-              <li><b>松坂屋 上野店</b>：走累了就進百貨吹冷氣、上乾淨廁所、喝下午茶休息。</li>
-            </ul>
+            <div class="shoptitle">💗 媽媽會愛的逛街店點（點按鈕看推薦）</div>
+            <div class="acc">
+              <details class="shop">
+                <summary>🍪 二木の菓子 <span class="desc">零食伴手禮大王</span></summary>
+                <div class="shopgoods">
+                  <span class="goods"><b>白色戀人</b> 餅乾</span>
+                  <span class="goods"><b>薯條三兄弟</b> じゃがポックル</span>
+                </div>
+              </details>
+              <details class="shop">
+                <summary>🛍️ 多慶屋 TAKEYA <span class="desc">紫色免稅百貨</span></summary>
+                <div class="shopgoods">
+                  <span class="goods"><b>資生堂／DHC</b> 保養品</span>
+                  <span class="goods"><b>日系鍋具・餐具</b> 廚房雜貨</span>
+                </div>
+              </details>
+              <details class="shop">
+                <summary>💊 OS Drug 藥妝店 <span class="desc">常備藥・保健</span></summary>
+                <div class="shopgoods">
+                  <span class="goods"><b>合利他命／EVE</b> 常備藥</span>
+                  <span class="goods"><b>休足時間</b> 舒緩貼片</span>
+                </div>
+              </details>
+              <details class="shop">
+                <summary>🍫 志村商店 <span class="desc">傳說中的巧克力叫賣</span></summary>
+                <div class="shopgoods">
+                  <span class="goods"><b>明治・固力果</b> 巧克力福袋</span>
+                  <span class="goods"><b>叫賣搶到的</b> 綜合零食袋</span>
+                </div>
+              </details>
+              <details class="shop">
+                <summary>🏬 松坂屋 上野店 <span class="desc">吹冷氣・休息</span></summary>
+                <div class="shopgoods">
+                  <span class="goods"><b>デパ地下</b> 和洋菓子甜點</span>
+                  <span class="goods"><b>資生堂等</b> 化妝品專櫃</span>
+                </div>
+              </details>
+            </div>
           </div>
           <div class="chips"><span class="chip">🍪 零食伴手禮</span><span class="chip">💊 藥妝掃貨</span><span class="chip">🍫 巧克力叫賣</span></div>
         </div>
@@ -284,6 +331,20 @@
           <h3>唐吉訶德</h3>
           <div class="jp">驚安の殿堂 ドン・キホーテ</div>
           <p>幾乎 24 小時的挖寶天堂！零食、藥妝、電器、伴手禮應有盡有，價格親切，晚上逛剛剛好，很適合補貨買回台灣的小禮物。</p>
+          <div class="shoplist">
+            <div class="shoptitle">💗 媽媽會想買的名物（點開看）</div>
+            <div class="acc">
+              <details class="shop">
+                <summary>🛒 唐吉訶德必買 4 選 <span class="desc">媽媽最愛</span></summary>
+                <div class="shopgoods">
+                  <span class="goods"><b>めぐりズム</b> 蒸氣熱敷眼罩</span>
+                  <span class="goods"><b>休足時間</b> 舒緩貼片</span>
+                  <span class="goods"><b>LuLuLun／資生堂</b> 面膜保養</span>
+                  <span class="goods"><b>抹茶 KitKat・Royce</b> 生巧克力伴手禮</span>
+                </div>
+              </details>
+            </div>
+          </div>
           <div class="chips"><span class="chip">🛒 什麼都有</span><span class="chip">🌙 逛到晚</span><span class="chip">🎁 挑伴手禮</span></div>
         </div>
       </div>
@@ -315,6 +376,20 @@
           <h3>DiverCity Tokyo Plaza</h3>
           <div class="jp">台場 · お台場</div>
           <p>門口就是超震撼的<b>實物大鋼彈立像</b>，是必拍地標！購物中心裡有美食、服飾和玩具，海邊風景舒服，很適合悠閒逛一個上午。</p>
+          <div class="shoplist">
+            <div class="shoptitle">💗 適合媽媽逛的店（點開看）</div>
+            <div class="acc">
+              <details class="shop">
+                <summary>🛍️ DiverCity 逛街推薦 <span class="desc">室內好逛不曬</span></summary>
+                <div class="shopgoods">
+                  <span class="goods"><b>無印良品 MUJI</b> 生活雜貨・保養</span>
+                  <span class="goods"><b>GU／UNIQLO</b> 平價好穿服飾</span>
+                  <span class="goods"><b>ABC-Mart</b> 好走的鞋</span>
+                  <span class="goods"><b>美食街</b> 章魚燒・拉麵歇腳</span>
+                </div>
+              </details>
+            </div>
+          </div>
           <div class="chips"><span class="chip">🤖 大鋼彈</span><span class="chip">🛍️ 購物中心</span><span class="chip">🌊 海邊景色</span></div>
         </div>
       </div>
